@@ -9,6 +9,7 @@ import { FeaturedProducts } from "./components/FeaturedProducts";
 import { NewProducts } from "./components/NewProducts";
 import { Users } from "./components/Users";
 import { UserDetails } from "./components/UserDetails";
+import { Admin } from "./components/Admin";
 
 function App() {
   return (
@@ -23,8 +24,10 @@ function App() {
           <Route path="featured" element={<FeaturedProducts />} />
           <Route path="new" element={<NewProducts />} />
         </Route>
-        <Route path="users" element={<Users />} />
-        <Route path="users/:userId" element={<UserDetails />} />
+        <Route path="users" element={<Users />}>
+          <Route path=":userId" element={<UserDetails />} />
+          <Route path="admin" element={<Admin />} />
+        </Route>
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </>
