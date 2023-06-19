@@ -22,9 +22,12 @@ export const Navbar = () => {
       <NavLink style={navLinkStyles} to="/products">
         Products
       </NavLink>
-      <NavLink style={navLinkStyles} to="/profile">
-        Profile
-      </NavLink>
+
+      {auth.user && (
+        <NavLink style={navLinkStyles} to="/profile">
+          Profile
+        </NavLink>
+      )}
       {!auth.user && (
         <NavLink style={navLinkStyles} to="/login">
           Login

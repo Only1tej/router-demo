@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthProvider } from "./components/Auth";
+import { AuthProvider, useAuth } from "./components/Auth";
 import { Routes, Route } from "react-router-dom";
 // import { About } from "./components/About";
 import { Home } from "./components/Home";
@@ -18,6 +18,8 @@ import { RequiredAuth } from "./components/RequiredAuth";
 const LazyAbout = React.lazy(() => import("./components/About"));
 
 function App() {
+  // const auth = useAuth();
+
   return (
     <>
       <AuthProvider>
@@ -36,9 +38,9 @@ function App() {
           <Route
             path="profile"
             element={
-              <RequiredAuth>
-                <Profile />
-              </RequiredAuth>
+              // <RequiredAuth>
+              <Profile />
+              // {/* </RequiredAuth> */}
             }
           />
           <Route path="login" element={<Login />} />
@@ -59,3 +61,5 @@ function App() {
 }
 
 export default App;
+
+// auth?.user ? <Profile /> : <Login />
